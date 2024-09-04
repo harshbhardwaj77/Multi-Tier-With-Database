@@ -75,27 +75,6 @@ resource "google_compute_instance" "nexus" {
   
 }
 
-resource "google_compute_instance" "monitor" {
-  name         = "monitor-vm"
-  machine_type = var.machine_type
-  zone         = var.zone
-  
-
-  boot_disk {
-    initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-2204-lts"
-      size  = 20
-    }
-  }
-
-  network_interface {
-    network = "default"
-    access_config {}
-  }
-  
-  metadata_startup_script = file("C:/Users/XX/Desktop/GIT-add/Terraform-scripts/Jenkins-new/startup-scripts/Monitor.sh")
-
-}
 
 
 
